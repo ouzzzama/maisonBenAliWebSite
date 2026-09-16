@@ -8,7 +8,7 @@ This guide explains how to host **maisonBenAliWebSite** on Hostinger and continu
 
 ```mermaid
 graph LR
-    A[Antigravity IDE] -->|Edit & Git Push| B[GitHub Repo]
+    A[Antigravity IDE] -->|Edit & Git Push| B[GitHub Repo: ouzzzama/maisonBenAliWebSite]
     B -->|Webhook Trigger| C[Hostinger hPanel]
     C -->|Auto Deploy| D[Live Website]
 ```
@@ -17,53 +17,39 @@ Every time you edit your website in Antigravity and push changes (`git push`), H
 
 ---
 
-## Step 1: Initialize Git Local Repository
+## Step 1: Linked GitHub Repository
 
-Once Git installation completes on your PC:
+Your GitHub Repository:
+**`https://github.com/ouzzzama/maisonBenAliWebSite.git`**
 
+Local repository commands (already configured):
 ```bash
-git init
-git add .
-git commit -m "Initial website commit"
+git remote set-url origin https://github.com/ouzzzama/maisonBenAliWebSite.git
+git push -u origin main
 ```
 
 ---
 
-## Step 2: Create a GitHub Repository
-
-1. Open [GitHub New Repository](https://github.com/new).
-2. Name the repository: `maisonBenAliWebSite`.
-3. Choose **Public** or **Private**.
-4. Click **Create repository**.
-5. Copy the repository URL (e.g. `https://github.com/YOUR_USERNAME/maisonBenAliWebSite.git`).
-6. Run these commands in Antigravity to connect your local site to GitHub:
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/maisonBenAliWebSite.git
-   git branch -M main
-   git push -u origin main
-   ```
-
----
-
-## Step 3: Connect GitHub to Hostinger (hPanel)
+## Step 2: Connect GitHub to Hostinger (hPanel)
 
 1. Log into your [Hostinger hPanel](https://hpanel.hostinger.com/).
 2. Go to **Websites** and click **Manage** next to your domain.
 3. On the left menu, go to **Advanced** ➔ **Git**.
 4. Fill in the repository details:
-   - **Repository**: `https://github.com/YOUR_USERNAME/maisonBenAliWebSite.git`
+   - **Repository**: `https://github.com/ouzzzama/maisonBenAliWebSite.git`
    - **Branch**: `main`
 5. Click **Create**.
 
 ---
 
-## Step 4: Enable Automatic Deployment (Webhook)
+## Step 3: Enable Automatic Deployment (Webhook)
 
 1. In Hostinger under your newly added Git repository, copy the **Webhook URL**.
-2. Go back to your GitHub Repository ➔ **Settings** ➔ **Webhooks** ➔ **Add webhook**.
-3. Paste the Hostinger **Webhook URL** into the **Payload URL** field.
-4. Set **Content type** to `application/json`.
-5. Click **Add webhook**.
+2. Go to your GitHub Repository: [https://github.com/ouzzzama/maisonBenAliWebSite/settings/hooks](https://github.com/ouzzzama/maisonBenAliWebSite/settings/hooks)
+3. Click **Add webhook**.
+4. Paste the Hostinger **Webhook URL** into the **Payload URL** field.
+5. Set **Content type** to `application/json`.
+6. Click **Add webhook**.
 
 ---
 
@@ -72,7 +58,7 @@ git commit -m "Initial website commit"
 Whenever you want to modify your website:
 
 1. **Modify with Antigravity**:
-   Ask Antigravity: *"Change the title on index.html to X"* or edit files directly.
+   Ask Antigravity: *"Change X on index.html"* or edit files directly.
 2. **Push to Hostinger**:
    Ask Antigravity: *"Push my changes to Hostinger"*
    *(or run `git commit -am "Updated website content" && git push` in terminal)*.
