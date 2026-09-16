@@ -2195,7 +2195,7 @@ label {
   object-fit: contain;
   object-position: center;
   border-radius: 50%;
-  animation: rotateCircleBadge 14s linear infinite;
+  animation: rotateCircleBadge 10s linear infinite !important;
   transform-origin: center center;
 }
 @keyframes rotateCircleBadge {
