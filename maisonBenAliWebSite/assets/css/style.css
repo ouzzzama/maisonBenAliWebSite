@@ -7209,4 +7209,443 @@ label {
   color: var(--primary-color);
   margin-right: 10px;
 }
+
+/* =======================================================
+   FLIP CARD STYLES FOR SERVICE CARDS & UNCLIPPED 3D ROTATION
+======================================================= */
+.service-slider,
+.service-slider .slick-list,
+.service-slider .slick-track,
+.service-slider .slick-slide,
+.renvia-service_one,
+.renvia-service_one .container,
+.renvia-service_one .row,
+.service-cards-image-mid {
+  overflow: visible !important;
+}
+
+.service-slider .slick-list {
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+}
+
+.renvia-service-card.flip-card {
+  perspective: 1400px;
+  background-color: transparent !important;
+  padding: 0 !important;
+  height: 460px;
+  border-radius: 30px;
+  border: none !important;
+  position: relative;
+  z-index: 1;
+  overflow: visible !important;
+}
+
+.renvia-service-card.flip-card:hover {
+  z-index: 100 !important;
+}
+
+.slick-slide:hover,
+.slick-slide:focus-within,
+.col-xl-4:hover,
+.col-lg-4:hover,
+.col-md-6:hover {
+  z-index: 100 !important;
+  position: relative;
+}
+
+.renvia-service-card.flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.renvia-service-card.flip-card:hover .flip-card-inner,
+.renvia-service-card.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.renvia-service-card.flip-card .flip-card-front,
+.renvia-service-card.flip-card .flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  padding: 35px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+}
+
+/* Front Side Styling */
+.renvia-service-card.flip-card .flip-card-front {
+  background: #ffffff;
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  background-image: radial-gradient(circle at top right, rgba(197, 168, 128, 0.08), transparent 70%);
+}
+
+.renvia-service-card.flip-card .flip-card-front .top-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.renvia-service-card.flip-card .flip-card-front .step-num {
+  font-size: 54px;
+  font-weight: 800;
+  color: var(--primary-color, #c5a880);
+  font-family: var(--heading-font);
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.renvia-service-card.flip-card .flip-card-front .title-box {
+  margin-top: 15px;
+}
+
+.renvia-service-card.flip-card .flip-card-front .card-title-big {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--heading-color, #0F172A);
+  line-height: 1.25;
+  margin-bottom: 12px;
+  font-family: var(--heading-font);
+}
+
+.renvia-service-card.flip-card .flip-card-front .service-tag {
+  display: inline-block;
+  background-color: rgba(197, 168, 128, 0.12);
+  color: #a38253;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.renvia-service-card.flip-card .flip-card-front .flip-hint {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.renvia-service-card.flip-card .flip-card-front .flip-hint i {
+  color: var(--primary-color, #c5a880);
+  font-size: 15px;
+  transition: transform 0.5s ease;
+}
+
+.renvia-service-card.flip-card:hover .flip-card-front .flip-hint i {
+  transform: rotate(180deg);
+}
+
+/* Back Side Styling */
+.renvia-service-card.flip-card .flip-card-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+  border: 2px solid var(--primary-color, #c5a880);
+}
+
+.renvia-service-card.flip-card .flip-card-back .title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color, #f0f0f0);
+}
+
+.renvia-service-card.flip-card .flip-card-back .title-wrap h4 {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.renvia-service-card.flip-card .flip-card-back p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #475569;
+  margin-bottom: 15px;
+}
+
+.renvia-service-card.flip-card .flip-card-back img {
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-top: auto;
+}
+
+/* =======================================================
+   STEP CARD THEMATIC COLOR PALETTES (01 to 06)
+======================================================= */
+
+/* General Back Side Text Color Override for step-card-01 to 06 */
+.renvia-service-card.flip-card[class*="step-card-"] .flip-card-back h4,
+.renvia-service-card.flip-card[class*="step-card-"] .flip-card-back h4 a,
+.renvia-service-card.flip-card[class*="step-card-"] .flip-card-back p,
+.renvia-service-card.flip-card[class*="step-card-"] .flip-card-back p strong,
+.renvia-service-card.flip-card[class*="step-card-"] .flip-card-back .step-label-num {
+  color: #FFFFFF !important;
+}
+
+.renvia-service-card.flip-card[class*="step-card-"] .flip-card-back .title-wrap {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* --- STEP 01: Gold / Champagne Prestige (Book & Buy) --- */
+.step-card-01 .flip-card-front {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF5EA 100%) !important;
+  border: 2px solid rgba(197, 168, 128, 0.45) !important;
+}
+.step-card-01 .flip-card-front .step-num {
+  color: #C5A880 !important;
+}
+.step-card-01 .flip-card-front .service-tag {
+  background-color: rgba(197, 168, 128, 0.15) !important;
+  color: #8C6D3B !important;
+}
+.step-card-01 .flip-card-front .flip-hint i {
+  color: #C5A880 !important;
+}
+.step-card-01 .flip-card-back {
+  background: linear-gradient(135deg, #C5A880 0%, #A88B60 100%) !important;
+  border: 2px solid #C5A880 !important;
+}
+.step-card-01 .flip-card-back .icon-btn {
+  background-color: #FFFFFF !important;
+  color: #C5A880 !important;
+}
+
+/* --- STEP 02: Airbnb Soft Coral / Pink (Rent & Airbnb) --- */
+.step-card-02 .flip-card-front {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF0F3 100%) !important;
+  border: 2px solid rgba(255, 56, 92, 0.35) !important;
+}
+.step-card-02 .flip-card-front .step-num {
+  color: #FF385C !important;
+}
+.step-card-02 .flip-card-front .service-tag {
+  background-color: rgba(255, 56, 92, 0.12) !important;
+  color: #D70466 !important;
+}
+.step-card-02 .flip-card-front .flip-hint i {
+  color: #FF385C !important;
+}
+.step-card-02 .flip-card-back {
+  background: linear-gradient(135deg, #FF385C 0%, #E00B41 100%) !important;
+  border: 2px solid #FF385C !important;
+}
+.step-card-02 .flip-card-back .icon-btn {
+  background-color: #FFFFFF !important;
+  color: #FF385C !important;
+}
+
+/* --- STEP 03: Automotive Titanium / Slate Grey (Move & Benali Cars) --- */
+.step-card-03 .flip-card-front {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%) !important;
+  border: 2px solid rgba(71, 85, 105, 0.35) !important;
+}
+.step-card-03 .flip-card-front .step-num {
+  color: #334155 !important;
+}
+.step-card-03 .flip-card-front .service-tag {
+  background-color: rgba(71, 85, 105, 0.12) !important;
+  color: #1E293B !important;
+}
+.step-card-03 .flip-card-front .flip-hint i {
+  color: #334155 !important;
+}
+.step-card-03 .flip-card-back {
+  background: linear-gradient(135deg, #334155 0%, #1E293B 100%) !important;
+  border: 2px solid #475569 !important;
+}
+.step-card-03 .flip-card-back .icon-btn {
+  background-color: #FFFFFF !important;
+  color: #334155 !important;
+}
+
+/* --- STEP 04: VIP Royal Purple / Amethyst (Live Your Life & VIP Packs) --- */
+.step-card-04 .flip-card-front {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF5FF 100%) !important;
+  border: 2px solid rgba(124, 58, 237, 0.35) !important;
+}
+.step-card-04 .flip-card-front .step-num {
+  color: #7C3AED !important;
+}
+.step-card-04 .flip-card-front .service-tag {
+  background-color: rgba(124, 58, 237, 0.12) !important;
+  color: #6D28D9 !important;
+}
+.step-card-04 .flip-card-front .flip-hint i {
+  color: #7C3AED !important;
+}
+.step-card-04 .flip-card-back {
+  background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%) !important;
+  border: 2px solid #7C3AED !important;
+}
+.step-card-04 .flip-card-back .icon-btn {
+  background-color: #FFFFFF !important;
+  color: #7C3AED !important;
+}
+
+/* --- STEP 05: Emerald Green (Invest & VEFA Projects) --- */
+.step-card-05 .flip-card-front {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%) !important;
+  border: 2px solid rgba(5, 150, 105, 0.35) !important;
+}
+.step-card-05 .flip-card-front .step-num {
+  color: #059669 !important;
+}
+.step-card-05 .flip-card-front .service-tag {
+  background-color: rgba(5, 150, 105, 0.12) !important;
+  color: #047857 !important;
+}
+.step-card-05 .flip-card-front .flip-hint i {
+  color: #059669 !important;
+}
+.step-card-05 .flip-card-back {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  border: 2px solid #059669 !important;
+}
+.step-card-05 .flip-card-back .icon-btn {
+  background-color: #FFFFFF !important;
+  color: #059669 !important;
+}
+
+/* --- STEP 06: Sapphire Ocean Blue (Advise & MRE Legal) --- */
+.step-card-06 .flip-card-front {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F9FF 100%) !important;
+  border: 2px solid rgba(2, 132, 199, 0.35) !important;
+}
+.step-card-06 .flip-card-front .step-num {
+  color: #0284C7 !important;
+}
+.step-card-06 .flip-card-front .service-tag {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  color: #0369A1 !important;
+}
+.step-card-06 .flip-card-front .flip-hint i {
+  color: #0284C7 !important;
+}
+.step-card-06 .flip-card-back {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%) !important;
+  border: 2px solid #0284C7 !important;
+}
+.step-card-06 .flip-card-back .icon-btn {
+  background-color: #FFFFFF !important;
+  color: #0284C7 !important;
+}
+
+/* =======================================================
+   LUXURY ROUNDED DROPDOWN UI IMPROVEMENTS
+======================================================= */
+.nice-select {
+  border-radius: 30px !important;
+  border: 1px solid rgba(197, 168, 128, 0.35) !important;
+  background-color: #FDFBF7 !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+}
+
+.nice-select:hover,
+.nice-select.open,
+.nice-select:focus {
+  border-color: var(--primary-color, #C5A880) !important;
+  box-shadow: 0 6px 20px rgba(197, 168, 128, 0.15) !important;
+}
+
+.nice-select:after {
+  transition: transform 0.3s ease !important;
+}
+
+.nice-select.open:after {
+  transform: rotate(180deg) !important;
+}
+
+/* Expanded List Popup with Rounded Borders & Soft Shadow */
+.nice-select .list {
+  border-radius: 22px !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15), 0 0 0 1px rgba(197, 168, 128, 0.25) !important;
+  padding: 10px 8px !important;
+  margin-top: 10px !important;
+  border: none !important;
+  overflow: hidden !important;
+  overflow-y: auto !important;
+  max-height: 280px !important;
+  z-index: 100 !important;
+  scrollbar-width: thin;
+  scrollbar-color: #C5A880 #F5F5F5;
+}
+
+/* Custom Scrollbar for Dropdown List */
+.nice-select .list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.nice-select .list::-webkit-scrollbar-track {
+  background: #F8F6F0;
+  border-radius: 10px;
+}
+
+.nice-select .list::-webkit-scrollbar-thumb {
+  background: #C5A880;
+  border-radius: 10px;
+}
+
+/* Dropdown Option Items */
+.nice-select .option {
+  border-radius: 14px !important;
+  margin: 4px 2px !important;
+  padding: 10px 18px !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  color: var(--heading-color, #0F172A) !important;
+  line-height: 1.4 !important;
+  min-height: auto !important;
+  transition: all 0.2s ease !important;
+}
+
+/* First Option / Header Option Styling */
+.nice-select .option:first-child {
+  font-weight: 700 !important;
+  background-color: rgba(247, 245, 239, 0.85) !important;
+  margin-bottom: 6px !important;
+  border-radius: 14px !important;
+}
+
+/* Option Hover State */
+.nice-select .option:hover,
+.nice-select .option.focus {
+  background-color: rgba(197, 168, 128, 0.12) !important;
+  color: var(--primary-color, #C5A880) !important;
+  transform: translateX(4px);
+}
+
+/* Option Selected State */
+.nice-select .option.selected {
+  font-weight: 700 !important;
+  background-color: rgba(197, 168, 128, 0.18) !important;
+  color: #8C6D3B !important;
+}
+
+.nice-select .option.selected:hover {
+  background-color: rgba(197, 168, 128, 0.25) !important;
+}
+
 /*# sourceMappingURL=style.css.map */

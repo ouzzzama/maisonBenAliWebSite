@@ -1,11 +1,11 @@
 {
   "name": "maison-ben-ali-website",
   "version": "1.0.0",
-  "description": "Maison Ben Ali Official Website",
+  "description": "Maison Benali Official Website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Maison Ben Ali",
+  "author": "Maison Benali",
   "license": "ISC"
 }
