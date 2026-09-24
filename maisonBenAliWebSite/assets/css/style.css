@@ -1474,43 +1474,106 @@ label {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-/* Sticky Header */
-.sticky {
-  position: fixed;
+/*======================================================
+    Smooth Morphing Sticky Header (Hero <-> Section Mode)
+=======================================================*/
+.header-area {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
   z-index: 1000;
-  margin: 0 auto;
+  margin-top: 25px;
+  transition: margin-top 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+              padding 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
+
+.header-area .container-fluid {
+  transition: padding 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.header-navigation {
+  border-radius: 100px;
+  transition: border-radius 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.sticky {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+  z-index: 1000;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.12) !important;
+  animation: navbarSlideDown 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.sticky .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.sticky .header-navigation {
+  border-radius: 0px !important; /* Section Mode: Borders get SHARPER (0px) */
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  padding: 10px 40px !important;
+}
+
 .sticky.header-one {
-  background-color: var(--white-color);
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
 }
 .sticky.header-two {
-  background-color: var(--heading-color);
+  background-color: rgba(18, 24, 38, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
 }
 .sticky.header-three {
-  background-color: var(--white-color);
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
 }
 .sticky.header-four {
-  background-color: var(--heading-color);
+  background-color: rgba(18, 24, 38, 0.98) !important;
+  backdrop-filter: blur(15px) !important;
 }
 .sticky.header-four .header-navigation {
-  border-radius: 0;
-  border: none;
-  background-color: inherit;
-  backdrop-filter: inherit;
-  padding: 0;
+  border-radius: 0px !important;
+  border: none !important;
+  background-color: transparent !important;
+  padding: 10px 40px !important;
 }
 @media screen and (max-width: 1199.98px) {
-  .sticky.header-four .header-navigation {
-    padding: 10px 0;
+  .sticky .header-navigation {
+    padding: 10px 20px !important;
+    border-radius: 0px !important;
   }
 }
 .sticky.header-four .nav-right-item .nav-button .theme-btn.style-one:hover {
   background-color: var(--white-color);
   color: var(--primary-color);
+}
+
+@keyframes navbarSlideDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /*======================

@@ -120,21 +120,17 @@ Version: 1.0
     $(document).ready(function () {
         function initStickyHeader(headerSelector) {
             const header = $(headerSelector);
-            let lastScroll = 0;
             $(window).on('scroll', function () {
                 const currentScroll = $(this).scrollTop();
-                if (currentScroll > 200) {
-                    if (currentScroll < lastScroll) {
-                        if (!header.hasClass('sticky')) {
-                            header.addClass('sticky');
-                        }
-                    } else {
+                if (currentScroll > 100) {
+                    if (!header.hasClass('sticky')) {
+                        header.addClass('sticky');
+                    }
+                } else {
+                    if (header.hasClass('sticky')) {
                         header.removeClass('sticky');
                     }
-                } else if (currentScroll === 0) {
-                    header.removeClass('sticky');
                 }
-                lastScroll = currentScroll;
             });
         }
         initStickyHeader('header');
