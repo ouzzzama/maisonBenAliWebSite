@@ -511,30 +511,41 @@ Version: 1.0
 		});
 	}
 
-    // ScrollTigger
+    // ScrollTrigger for Project Section Cards
 
     $(function () {
         var width = $(window).width();
         if (width <= 1199) return;
-        ScrollTrigger.create({
-            trigger: ".renvia-project_one",
-            start: "top top",
-            end: "bottom bottom",
-            pin: ".renvia-project_one .renvia-content-box",
-            pinSpacing: false,
-            markers: false
-        });
+        if (!$(".renvia-project_one").length) return;
+        if (window.__renviaProjectScrollTriggerInit) return;
+        window.__renviaProjectScrollTriggerInit = true;
+
+        // Pin 120px below viewport top so the sticky navbar (~96px) does not hide the cards or title when scrolling up
+        let pinTopOffset = 120;
+
         let cards = gsap.utils.toArray(".renvia-proiect-list .renvia-project-item");
+        if (!cards.length) return;
+
         let stickDistance = 530;
         let lastCardST = ScrollTrigger.create({
             trigger: cards[cards.length - 1],
             start: "bottom bottom",
             markers: false
         });
+
+        ScrollTrigger.create({
+            trigger: ".renvia-project_one .renvia-content-box",
+            start: "top " + pinTopOffset + "px",
+            end: () => lastCardST.start + stickDistance,
+            pin: ".renvia-project_one .renvia-content-box",
+            pinSpacing: false,
+            markers: false
+        });
+
         cards.forEach((card, index) => {
             ScrollTrigger.create({
                 trigger: card,
-                start: "top top",
+                start: "top " + pinTopOffset + "px",
                 end: () => lastCardST.start + stickDistance,
                 pin: true,
                 pinSpacing: false,

@@ -1486,6 +1486,7 @@ label {
 }
 .sticky.header-one {
   background-color: var(--white-color);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
 }
 .sticky.header-two {
   background-color: var(--heading-color);
@@ -4059,11 +4060,94 @@ label {
   }
 }
 .renvia-project_one .renvia-proiect-list .renvia-project-item {
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 30px;
+  background-color: #FFFFFF !important;
+  border-radius: 28px !important;
+  border: 1.5px solid rgba(197, 168, 128, 0.35) !important;
+  box-shadow: 0 22px 50px -10px rgba(15, 23, 42, 0.16), 0 8px 24px -4px rgba(15, 23, 42, 0.08) !important;
+  padding: 32px 32px 32px 38px !important;
+  margin-bottom: 40px !important;
+  border-bottom: 1.5px solid rgba(197, 168, 128, 0.35) !important;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
-.renvia-project_one .renvia-proiect-list .renvia-project-item:not(:last-child) {
-  margin-bottom: 30px;
+@media (max-width: 767.98px) {
+  .renvia-project_one .renvia-proiect-list .renvia-project-item {
+    padding: 25px 20px !important;
+    border-radius: 22px !important;
+  }
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 65px -10px rgba(15, 23, 42, 0.22), 0 12px 28px -4px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Card Differentiation & Thematic Styling */
+
+/* Card 1: Prestige Champagne Gold (Villa Luxe) */
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(1) {
+  border-color: rgba(197, 168, 128, 0.5) !important;
+  box-shadow: 0 22px 50px -10px rgba(197, 168, 128, 0.25), 0 8px 24px -4px rgba(15, 23, 42, 0.08) !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(1) .project-meta span {
+  background-color: rgba(197, 168, 128, 0.15) !important;
+  color: #8C6D3B !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(1) .icon-btn {
+  background-color: #C5A880 !important;
+}
+
+/* Card 2: Riviera Ocean Blue (Marina Appartement) */
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(2) {
+  border-color: rgba(2, 132, 199, 0.45) !important;
+  box-shadow: 0 22px 50px -10px rgba(2, 132, 199, 0.22), 0 8px 24px -4px rgba(15, 23, 42, 0.08) !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(2) .project-meta span {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  color: #0369A1 !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(2) .icon-btn {
+  background-color: #0284C7 !important;
+}
+
+/* Card 3: Emerald Eco-Luxe (Taghazout VEFA) */
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(3) {
+  border-color: rgba(5, 150, 105, 0.45) !important;
+  box-shadow: 0 22px 50px -10px rgba(5, 150, 105, 0.22), 0 8px 24px -4px rgba(15, 23, 42, 0.08) !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(3) .project-meta span {
+  background-color: rgba(5, 150, 105, 0.12) !important;
+  color: #047857 !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(3) .icon-btn {
+  background-color: #059669 !important;
+}
+
+/* Card 4: VIP Platinum Amethyst (Commercial & Showroom VIP) */
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(4) {
+  border-color: rgba(124, 58, 237, 0.45) !important;
+  box-shadow: 0 22px 50px -10px rgba(124, 58, 237, 0.22), 0 8px 24px -4px rgba(15, 23, 42, 0.08) !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(4) .project-meta span {
+  background-color: rgba(124, 58, 237, 0.12) !important;
+  color: #6D28D9 !important;
+}
+.renvia-project_one .renvia-proiect-list .renvia-project-item:nth-child(4) .icon-btn {
+  background-color: #7C3AED !important;
+}
+
+/* Rounded Meta Tags inside cards */
+.renvia-project_one .renvia-project-item.style-one .project-content .project-meta span {
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.renvia-project_one .renvia-project-item.style-one .project-content .project-meta span.location i {
+  margin-right: 6px;
 }
 
 .renvia-project_two {
@@ -7646,6 +7730,100 @@ label {
 
 .nice-select .option.selected:hover {
   background-color: rgba(197, 168, 128, 0.25) !important;
+}
+
+/* =======================================================
+   CIRCULAR ARCHED SECTION BOTTOM DESIGN (Option A)
+   Transforms all section bottoms into continuous circular arcs
+======================================================= */
+:root {
+  --section-bottom-curve: clamp(35px, 5vw, 65px);
+}
+
+/* Apply continuous circular arc to all sections across all pages */
+main > section,
+.renvia-hero_one,
+.page-hero,
+.renvia-about_one,
+.renvia-about_three,
+.renvia-service_one,
+.renvia-project_one,
+.renvia-projects-sec,
+.renvia-project-details-sec,
+.renvia-service-details-sec,
+.renvia-intro_one,
+.renvia-feature_one,
+.renvia-testimonial_one,
+.renvia-awards_one,
+.renvia-blog-sec,
+.renvia-contact_two,
+.renvia-counter-sec,
+.renvia-cta_one,
+.renvia-work-sec,
+.renvia-choose-sec,
+.contact-map-sec {
+  position: relative;
+  border-radius: 0 0 50% 50% / 0 0 var(--section-bottom-curve) !important;
+  overflow: hidden;
+  box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.08);
+  border-bottom: 1.5px solid rgba(197, 168, 128, 0.25);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Ensure background image layers and sliders clip accurately to the curve */
+.renvia-hero_one .hero-slider,
+.renvia-hero_one .single-slider,
+.renvia-hero_one .image-layer,
+.page-hero::after,
+.renvia-intro_one::after,
+.renvia-counter-sec::after,
+.renvia-cta_one::after {
+  border-radius: inherit;
+}
+
+/* Solid background for white sections so underlying sections do not bleed through */
+main > section:not([class*="bg_cover"]):not([class*="gray-bg"]):not(.renvia-hero_one):not(.contact-map-sec) {
+  background-color: var(--white-color, #ffffff);
+}
+
+/* Seamless overlap so the curved bottom smoothly sits over the subsequent section */
+main > section:not(:first-child) {
+  margin-top: calc(-1 * var(--section-bottom-curve));
+}
+
+/* Descending z-index stacking hierarchy */
+main > section:nth-child(1) { z-index: 20; }
+main > section:nth-child(2) { z-index: 19; }
+main > section:nth-child(3) { z-index: 18; }
+main > section:nth-child(4) { z-index: 17; }
+main > section:nth-child(5) { z-index: 16; }
+main > section:nth-child(6) { z-index: 15; }
+main > section:nth-child(7) { z-index: 14; }
+main > section:nth-child(8) { z-index: 13; }
+main > section:nth-child(9) { z-index: 12; }
+main > section:nth-child(10) { z-index: 11; }
+main > section:nth-child(11) { z-index: 10; }
+main > section:nth-child(12) { z-index: 9; }
+
+/* Subpage banner hero explicit overlap */
+.page-hero {
+  z-index: 15;
+}
+
+/* Contact map section iframe radius clipping */
+.contact-map-sec .map-box,
+.contact-map-sec .map-box iframe {
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+/* Meeting the footer: final section curves gracefully over the dark footer */
+footer.main-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: calc(-1 * var(--section-bottom-curve));
+  padding-top: calc(80px + var(--section-bottom-curve)) !important;
 }
 
 /*# sourceMappingURL=style.css.map */
