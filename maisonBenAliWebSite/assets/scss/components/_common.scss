@@ -229,3 +229,91 @@ label{
         }
     }
 }
+
+/* Curved Section - All Sides */
+
+.curved-section {
+    position: relative;
+    overflow: hidden;
+    
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: -50%;
+        width: 200%;
+        height: 250px;
+        background-color: var(--white-color);
+        border-radius: 50%;
+        z-index: -1;
+    }
+    
+    &::before {
+        top: 0;
+    }
+    
+    &::after {
+        bottom: 0;
+    }
+}
+
+.gray-bg.curved-section::before,
+.gray-bg.curved-section::after {
+    background-color: var(--gray-color);
+}
+
+.dark-bg.curved-section::before,
+.dark-bg.curved-section::after {
+    background-color: var(--heading-color);
+}
+
+.curved-bottom {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -50%;
+        width: 200%;
+        height: 120px;
+        background-color: inherit;
+        border-radius: 50%;
+        z-index: -1;
+    }
+}
+
+.curved-bottom-reverse {
+    position: relative;
+    overflow: hidden;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 200%;
+        height: 120px;
+        background-color: inherit;
+        border-radius: 50%;
+        z-index: -1;
+    }
+}
+
+.section-divider {
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 120px;
+        background-color: inherit;
+        border-radius: 50%;
+        z-index: 1;
+    }
+}
