@@ -230,41 +230,42 @@ label{
     }
 }
 
-/* Curved Section - All Sides */
+/* Curved Section - Wavy Bottom */
 
 .curved-section {
     position: relative;
     overflow: hidden;
     
-    &::before,
     &::after {
         content: '';
         position: absolute;
-        left: -50%;
-        width: 200%;
-        height: 250px;
-        background-color: var(--white-color);
-        border-radius: 50%;
-        z-index: -1;
-    }
-    
-    &::before {
-        top: 0;
-    }
-    
-    &::after {
         bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background-color: var(--white-color);
+        z-index: -1;
+        background-image: 
+            radial-gradient(circle at 0% 100%, transparent 150px, var(--white-color) 151px),
+            radial-gradient(circle at 100% 100%, transparent 150px, var(--white-color) 151px);
+        background-size: 50% 150px;
+        background-repeat: no-repeat;
+        background-position: left bottom, right bottom;
     }
 }
 
-.gray-bg.curved-section::before,
 .gray-bg.curved-section::after {
     background-color: var(--gray-color);
+    background-image: 
+        radial-gradient(circle at 0% 100%, transparent 150px, var(--gray-color) 151px),
+        radial-gradient(circle at 100% 100%, transparent 150px, var(--gray-color) 151px);
 }
 
-.dark-bg.curved-section::before,
 .dark-bg.curved-section::after {
     background-color: var(--heading-color);
+    background-image: 
+        radial-gradient(circle at 0% 100%, transparent 150px, var(--heading-color) 151px),
+        radial-gradient(circle at 100% 100%, transparent 150px, var(--heading-color) 151px);
 }
 
 .curved-bottom {

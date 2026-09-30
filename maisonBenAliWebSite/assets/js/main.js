@@ -483,25 +483,25 @@ Version: 1.0
     // Gsap SplitText
 
     if ($('.text-anm').length) {
-		let staggerAmount = 0.01,
-			translateXValue = 40,
-			delayValue = .3,
-			easeType = "power2.out",
+		let staggerAmount = 0.02,
+			translateYValue = 40,
+			delayValue = .2,
+			easeType = "power3.out",
 			animatedTextElements = document.querySelectorAll('.text-anm');
 		animatedTextElements.forEach((element) => {
 			let animationSplitText = new SplitText(element, {
-				type: "chars, words"
+				type: "lines, words"
 			});
-			gsap.from(animationSplitText.chars, {
-				duration: 1,
+			gsap.from(animationSplitText.words, {
+				duration: 1.2,
 				delay: delayValue,
-				x: translateXValue,
+				y: translateYValue,
 				autoAlpha: 0,
 				stagger: staggerAmount,
 				ease: easeType,
 				scrollTrigger: {
 					trigger: element,
-					start: "top 85%"
+					start: "top 90%"
 				},
 			});
 		});
@@ -511,7 +511,7 @@ Version: 1.0
 
     $(function () {
         var width = $(window).width();
-        if (width <= 1199) return;
+        if (width <= 991) return;
         if (!$(".renvia-project_one").length) return;
         if (window.__renviaProjectScrollTriggerInit) return;
         window.__renviaProjectScrollTriggerInit = true;
@@ -539,15 +539,30 @@ Version: 1.0
         });
 
         cards.forEach((card, index) => {
+            // Pin the card
             ScrollTrigger.create({
                 trigger: card,
                 start: "top " + pinTopOffset + "px",
                 end: () => lastCardST.start + stickDistance,
                 pin: true,
                 pinSpacing: false,
-                scrub: true,
                 markers: false
             });
+            
+            // Add a scale down effect as the next card scrolls over it (except for the last card)
+            if (index < cards.length - 1) {
+                gsap.to(card, {
+                    scale: 0.92,
+                    opacity: 0.5,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top " + pinTopOffset + "px",
+                        end: "+=" + stickDistance,
+                        scrub: true
+                    }
+                });
+            }
         });
     });
     
@@ -587,7 +602,10 @@ Version: 1.0
     //===== Aos Animation
 
     AOS.init({
-        offset: 0
+        offset: 50,
+        duration: 800,
+        easing: 'ease-out-cubic',
+        once: true
     });
 
     // Document Ready

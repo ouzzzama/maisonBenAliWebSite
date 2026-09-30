@@ -3,13 +3,10 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Tell the server to look ONE folder up (at the root of the repository)
-const publicDir = path.join(__dirname, "..");
-
-app.use(express.static(publicDir));
+app.use(express.static(__dirname));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(publicDir, "index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(port, () => {

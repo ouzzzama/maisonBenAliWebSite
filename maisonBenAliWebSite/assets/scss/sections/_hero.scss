@@ -46,14 +46,6 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
-
-    &.curved-section {
-        &::after {
-            height: 200px;
-            background-size: 50% 200px;
-            background-image: radial-gradient(circle at 0% 100%, transparent 200px, var(--heading-color) 201px), radial-gradient(circle at 100% 100%, transparent 200px, var(--heading-color) 201px);
-        }
-    }
     & .hero-dots{
         position: absolute;
         top: 50%;

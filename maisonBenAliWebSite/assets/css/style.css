@@ -6310,3 +6310,504 @@ label {
   border-color: transparent;
   background-color: var(--primary-color);
 }
+
+/* Disable old buggy curved-section pseudo-elements */
+.curved-section::before, .curved-section::after {
+  display: none !important;
+}
+
+/* --- New Bottom Curve Implementation --- */
+
+/* 1. Create the gentle curve using an oversized pseudo-element */
+.curve-bottom {
+  border-radius: 0 !important;
+  margin-bottom: 0 !important; 
+  padding-bottom: 5vw !important; /* Give content room above the curve */
+  overflow: visible !important;
+  position: relative;
+}
+.curve-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: -4vw; /* Hangs down */
+  left: -50vw; /* Wide enough to push the sharp hooks completely off screen */
+  width: 200vw;
+  height: 8vw; /* Depth of curve */
+  border-radius: 50%;
+  background: inherit;
+  background-color: inherit;
+  pointer-events: none;
+  z-index: 1; /* Place above the next section */
+}
+
+/* Ensure sections without explicit background colors have white backgrounds, otherwise the curve is invisible (transparent on transparent) */
+.curve-bottom:not(.gray-bg):not(.dark-bg) {
+  background-color: var(--white-color, #ffffff);
+}
+
+/* 2. Establish stacking context for sections so earlier sections overlap later ones */
+main > section {
+  position: relative;
+}
+main > section:nth-child(1) { z-index: 20 !important; }
+main > section:nth-child(2) { z-index: 19 !important; }
+main > section:nth-child(3) { z-index: 18 !important; }
+main > section:nth-child(4) { z-index: 17 !important; }
+main > section:nth-child(5) { z-index: 16 !important; }
+main > section:nth-child(6) { z-index: 15 !important; }
+main > section:nth-child(7) { z-index: 14 !important; }
+main > section:nth-child(8) { z-index: 13 !important; }
+main > section:nth-child(9) { z-index: 12 !important; }
+main > section:nth-child(10) { z-index: 11 !important; }
+main > section:nth-child(11) { z-index: 10 !important; }
+main > section:nth-child(12) { z-index: 9 !important; }
+main > section:nth-child(13) { z-index: 8 !important; }
+main > section:nth-child(14) { z-index: 7 !important; }
+main > section:nth-child(15) { z-index: 6 !important; }
+
+/* 3. Automatically pad the content of the section that got pulled up, so it doesn't get hidden under the curve */
+.curve-bottom + section::before {
+  content: "";
+  display: block;
+  height: 5vw;
+  width: 100%;
+}
+
+/* Responsive Curve for Mobile UI/UX */
+@media (max-width: 768px) {
+  .curve-bottom::after {
+    bottom: -20px;
+    height: 40px;
+  }
+  .curve-bottom {
+    padding-bottom: 30px !important;
+  }
+  .curve-bottom + section::before {
+    height: 30px;
+  }
+}
+
+/* Fix for the footer and other sections being covered by the curve */
+main + footer::before {
+  content: "";
+  display: block;
+  height: 5vw;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  main + footer::before {
+    height: 30px;
+  }
+}
+
+/* ==========================================================================
+   PREMIUM UI/UX DESIGN OVERHAUL - "MAISON BENALI 360°"
+   ========================================================================== */
+
+:root {
+  /* Refining colors for a more premium, high-end real estate feel */
+  --primary-color: #E63946; /* Slightly deeper, more elegant red/coral based on brand */
+  --heading-color: #0A0A0A; /* Stark, premium black for high contrast */
+  --primary-black-color: #111111; 
+  --gray-color: #F8F9FA; /* Cleaner, modern off-white for sections */
+  --text-color: #4A4E57; /* Darker, more legible gray for body text */
+  --border-color: #EAECEF; /* Softer, thinner borders */
+}
+
+body {
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Polish */
+h1, h2, h3, h4, h5, h6, .section-title h2 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+.section-title span.sub-title {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* Premium Card Styling & Micro-interactions */
+.renvia-project-item, 
+.renvia-service-item, 
+.renvia-blog-post-item,
+.rental-car-card,
+.renvia-testimonial-item {
+  background: var(--white-color);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: margin-top 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  overflow: hidden;
+}
+
+/* Card Hover Lifts */
+.renvia-project-item:hover, 
+.renvia-service-item:hover, 
+.renvia-blog-post-item:hover,
+.rental-car-card:hover {
+  margin-top: -8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0,0,0,0.05);
+}
+
+/* Image Zoom on Hover (Premium subtle effect) */
+.renvia-project-item .project-img img, 
+.renvia-project-item .project-thumbnail img, 
+.renvia-blog-post-item .post-thumbnail img,
+.renvia-service-item .service-img img,
+.rental-car-card .car-photo img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+.renvia-project-item:hover .project-img img,
+.renvia-project-item:hover .project-thumbnail img,
+.renvia-blog-post-item:hover .post-thumbnail img,
+.renvia-service-item:hover .service-img img,
+.rental-car-card:hover .car-photo img {
+  transform: scale(1.06) !important;
+}
+
+/* Button Refinements */
+.theme-btn {
+  border-radius: 50px !important; /* Pill shape for premium modern look */
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  font-size: 14px !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.15);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px 32px !important;
+  width: auto !important;
+}
+.theme-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
+}
+
+/* Dark Section Text Polish */
+.dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg h4, .dark-bg h5, .dark-bg h6,
+.bg_cover h1, .bg_cover h2, .bg_cover h3, .bg_cover h4, .bg_cover h5, .bg_cover h6 {
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.dark-bg p, .bg_cover p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Inputs & Forms (Premium styling) */
+input, textarea, select {
+  border-radius: 6px !important;
+  border: 1px solid var(--border-color) !important;
+  background-color: #FAFAFA !important;
+  transition: all 0.3s ease !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.01) !important;
+}
+input:focus, textarea:focus, select:focus {
+  background-color: #fff !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1) !important;
+  outline: none !important;
+}
+
+/* Premium Header/Nav Hover */
+.theme-nav-menu ul li a {
+  transition: color 0.3s ease;
+}
+.theme-nav-menu ul li a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Video Play Button Premium Pulse */
+.video-popup {
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  animation: premium-pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+@keyframes premium-pulse {
+  to {
+    box-shadow: 0 0 0 30px rgba(255, 255, 255, 0);
+  }
+}
+
+/* Hero Section Enhancement */
+.renvia-hero_one {
+  /* Ensure a subtle gradient overlay on the hero for better text readability */
+}
+.renvia-hero_one .image-layer:after {
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.7) 100%) !important;
+}
+
+/* --- Premium Page Load Animations --- */
+.renvia-hero_one .image-layer {
+  animation: hero-subtle-zoom 15s ease-out forwards;
+}
+@keyframes hero-subtle-zoom {
+  0% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.header-navigation {
+  animation: nav-drop 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes nav-drop {
+  0% { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Card inner layout improvements */
+.renvia-project-item .project-content,
+.renvia-service-item .service-content,
+.renvia-blog-post-item .post-content {
+  padding: 30px !important;
+}
+
+/* Subtle line separators */
+.footer-widget-area {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Form and search polish */
+.widget-search form input {
+  border-radius: 50px !important;
+  padding-left: 20px !important;
+}
+.widget-search form button {
+  border-radius: 50px !important;
+  right: 5px !important;
+  top: 5px !important;
+  height: calc(100% - 10px) !important;
+}
+
+/* Clean up old generic shadow on project content if it exists */
+.renvia-project-item .project-content {
+  box-shadow: none !important;
+}
+
+/* Fix GSAP Pinning: overflow: hidden breaks position: fixed */
+.renvia-project_one {
+  overflow: visible !important;
+}
+
+/* ==========================================================================
+   FLIP CARD ANIMATION RESTORATION
+   ========================================================================== */
+
+/* 1. Un-flatten 3D space (Fix for .curve-bottom's overflow: hidden breaking 3D context) */
+.renvia-service_one {
+  overflow: visible !important;
+}
+
+/* 2. Reset the main wrapper so it doesn't look like a card (faces handle background now) */
+.renvia-service-card.flip-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  perspective: 2000px;
+}
+
+/* 3. The Grid Inner Container */
+.flip-card-inner {
+  display: grid !important;
+  width: 100%;
+  perspective: 2000px;
+}
+
+/* 4. Grid Cells / Faces Setup */
+.flip-card-front, .flip-card-back {
+  grid-area: 1 / 1;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  width: 100%;
+  border-radius: 30px; /* Original service card radius */
+  padding: 35px 40px 40px; /* Original service card padding */
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Initial States */
+.flip-card-front {
+  transform: rotateY(0deg) !important;
+  background-color: var(--white-color); /* Original front background */
+  z-index: 2;
+}
+.flip-card-back {
+  transform: rotateY(180deg) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+/* Hover States (Flip!) */
+.renvia-service-card.flip-card:hover .flip-card-front {
+  transform: rotateY(180deg) !important;
+  z-index: 1;
+}
+.renvia-service-card.flip-card:hover .flip-card-back {
+  transform: rotateY(360deg) !important;
+  z-index: 2;
+}
+
+/* Unique Background Colors for the Back Faces */
+.step-card-01 .flip-card-back { background-color: #1A2B4C; } /* Navy */
+.step-card-02 .flip-card-back { background-color: #E63946; } /* Crimson */
+.step-card-03 .flip-card-back { background-color: #2A4D3E; } /* Emerald */
+.step-card-04 .flip-card-back { background-color: #C5A265; } /* Gold */
+
+/* Light Content for Back Faces */
+.flip-card-back h4 a,
+.flip-card-back p,
+.flip-card-back .step-label-num {
+  color: #ffffff !important;
+}
+.flip-card-back .icon-btn {
+  background: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+}
+.flip-card-back .icon-btn:hover {
+  background: rgba(255,255,255,0.3) !important;
+}
+
+
+/* ==========================================================================
+   SERVICES PAGE: PREMIUM ALTERNATING SECTIONS
+   ========================================================================== */
+.premium-service-section.light-content h2,
+.premium-service-section.light-content p,
+.premium-service-section.light-content .step-label {
+  color: #ffffff !important;
+}
+.premium-service-section.light-content .theme-btn.style-one {
+  background-color: #ffffff;
+  color: var(--heading-color);
+}
+.premium-service-section.light-content .theme-btn.style-one:before {
+  background-color: var(--primary-color);
+}
+.premium-service-section.light-content .theme-btn.style-one:hover {
+  color: #ffffff;
+}
+
+/* Simple, elegant micro-interaction on hover (no weird background shadows) */
+.premium-service-section .service-image-wrap img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: transform;
+}
+.premium-service-section .service-image-wrap:hover img {
+  transform: scale(1.05) translateY(-8px) !important;
+}
+
+/* ==========================================================================
+   SERVICES PAGE: GAP AND ROUNDED CORNERS (SPACIOUS PREMIUM LAYOUT)
+   ========================================================================== */
+.premium-service-section {
+  margin-bottom: 80px !important;
+  border-radius: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+}
+@media (min-width: 992px) {
+  .premium-service-section {
+    margin-bottom: 120px !important;
+    border-radius: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+
+/* ==========================================================================
+   GSAP CARDS FIXES (HOME PAGE)
+   ========================================================================== */
+/* 1. Add massive gap below the pinning section so it doesn't overlap the video section */
+.renvia-project_one {
+  padding-bottom: 250px !important;
+  margin-bottom: 80px !important;
+}
+
+/* 2. Fix the image on the right looking cut off */
+.renvia-project_one .renvia-proiect-list .renvia-project-item .project-thumbnail {
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+@media (max-width: 991px) {
+  .renvia-project_one {
+    padding-bottom: 120px !important; /* Normal padding on mobile since GSAP is disabled */
+    margin-bottom: 40px !important;
+  }
+  .renvia-project_one .renvia-proiect-list .renvia-project-item .project-thumbnail {
+    padding-right: 0;
+  }
+}
+
+/* Alignment for the combined Achat/Location cards to exactly match .premium-service-section */
+.aligned-cards-wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+  /* We don't need margin-bottom here because the section has it, but we need width */
+}
+@media (min-width: 992px) {
+  .aligned-cards-wrapper {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+
+
+
+/* ==========================================================================
+   MATHEMATICALLY PERFECT CLIP-PATH CURVE
+   (Works with background images, zero edge hooking, perfect subtlety)
+   ========================================================================== */
+.curve-bottom {
+    /* 
+       Center of ellipse: 50% X, -50% Y (far above the top edge so the top isn't clipped)
+       Horizontal Radius: 200% (extremely wide so edges don't hook)
+       Vertical Radius: 150% (reaches exactly 100% height at the bottom center)
+    */
+    clip-path: ellipse(200% 150% at 50% -50%) !important;
+    -webkit-clip-path: ellipse(200% 150% at 50% -50%) !important;
+    
+    border-radius: 0 !important;
+    margin-bottom: -4vw !important; /* Pull next section up to tuck under curve */
+    padding-bottom: 8vw !important; /* Prevent text from being clipped by the curve */
+    overflow: hidden !important; 
+    z-index: 10;
+    position: relative;
+}
+
+/* Ensure sections without explicit colors don't become invisible */
+.curve-bottom:not(.gray-bg):not(.dark-bg) {
+    background-color: var(--white-color, #ffffff);
+}
+
+/* Give the next section some padding so content doesn't get hidden under the overlapping curve */
+.curve-bottom + section {
+    padding-top: 6vw !important;
+}
+
+@media (max-width: 768px) {
+    .curve-bottom {
+        clip-path: ellipse(250% 150% at 50% -50%) !important;
+        -webkit-clip-path: ellipse(250% 150% at 50% -50%) !important;
+        margin-bottom: -30px !important;
+        padding-bottom: 60px !important;
+    }
+    .curve-bottom + section {
+        padding-top: 50px !important;
+    }
+}
