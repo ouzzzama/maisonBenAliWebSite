@@ -50,6 +50,37 @@
 <link href="assets/css/spacings.css" rel="stylesheet"/>
 <!--====== Default css ======-->
 <link href="assets/css/style.css" rel="stylesheet"/>
+
+  <style id="global-mobile-fixes">
+    @media (max-width: 991px) {
+      /* Fix spacing for intro section */
+      .renvia-intro_one { margin-top: 50px !important; }
+      
+      /* Fix 3D rotation issues on mobile */
+      .service-image-wrap { transform: none !important; }
+      
+      /* General Typography fixes */
+      h2.title, h2.text-anm { font-size: 32px !important; line-height: 1.3 !important; }
+      h1 { font-size: 40px !important; line-height: 1.2 !important; }
+      
+      /* Fix flip cards on touch devices */
+      .premium-service-card { padding: 40px 20px !important; }
+      
+      /* Padding reductions for sections */
+      .pt-120 { padding-top: 70px !important; }
+      .pb-120 { padding-bottom: 70px !important; }
+      .pt-100 { padding-top: 60px !important; }
+      .pb-100 { padding-bottom: 60px !important; }
+      .mt-115 { margin-top: 60px !important; }
+      
+      /* Prevent horizontal scrolling */
+      body, html { overflow-x: hidden; width: 100%; }
+      /* .container { overflow-x: hidden; } removed for dropdown safety */
+      
+      /* Fix inline styles on images */
+      img { max-width: 100% !important; height: auto !important; }
+    }
+  </style>
 </head>
 <body>
 <!--====== Start Preloader ======-->

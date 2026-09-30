@@ -49,6 +49,32 @@
 <link href="assets/css/spacings.css" rel="stylesheet"/>
 <!--====== Default css ======-->
 <link href="assets/css/style.css" rel="stylesheet"/>
+
+  <style id="global-mobile-fixes">
+    @media (max-width: 991px) {
+      /* Fix 3D rotation issues on mobile */
+      .service-image-wrap { transform: none !important; }
+      
+      /* General Typography fixes */
+      h2.title, h2.text-anm { font-size: 32px !important; line-height: 1.3 !important; }
+      
+      /* Fix flip cards on touch devices */
+      .premium-service-card { padding: 40px 20px !important; height: auto !important; min-height: 400px; }
+      
+      /* Padding reductions for sections */
+      .pt-120 { padding-top: 70px !important; }
+      .pb-120 { padding-bottom: 70px !important; }
+      .pt-100 { padding-top: 60px !important; }
+      .pb-100 { padding-bottom: 60px !important; }
+      
+      /* Prevent horizontal scrolling */
+      body, html { overflow-x: hidden; width: 100%; }
+      /* .container { overflow-x: hidden; } removed for dropdown safety */
+      
+      /* Reset specific image inline constraints causing issues */
+      .service-image-wrap img { max-width: 100% !important; }
+    }
+  </style>
 </head>
 <body class="axis-innerpage">
 <!--====== Start Preloader ======-->
@@ -214,7 +240,7 @@
 </div>
 </div>
 <div class="col-lg-6 offset-lg-1">
-<div class="service-image-wrap" style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; transform: perspective(1000px) rotateY(5deg); transition: transform 0.5s;"><div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1;"><img alt="Work Life Balance" src="assets/images/icons/work-life-balance.png" style="width: 130px; filter: brightness(0) invert(1); drop-shadow(0 15px 25px rgba(0,0,0,0.3)); margin-bottom: 20px;"/><p style="font-size: 14px; line-height: 1.6; color: #ffffff; opacity: 0.95; font-weight: 500;">Équilibre parfait entre productivité et détente absolue.</p></div><div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1;"><img alt="Effect" src="assets/images/icons/effect.png" style="width: 130px; filter: brightness(0) invert(1); drop-shadow(0 15px 25px rgba(0,0,0,0.3)); margin-bottom: 20px;"/><p style="font-size: 14px; line-height: 1.6; color: #ffffff; opacity: 0.95; font-weight: 500;">Impact immédiat sur votre bien-être au quotidien.</p></div></div>
+<div class="service-image-wrap" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 20px; transform: perspective(1000px) rotateY(5deg); transition: transform 0.5s;"><div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1;"><img alt="Work Life Balance" src="assets/images/icons/work-life-balance.png" style="width: 130px; filter: brightness(0) invert(1); drop-shadow(0 15px 25px rgba(0,0,0,0.3)); margin-bottom: 20px;"/><p style="font-size: 14px; line-height: 1.6; color: #ffffff; opacity: 0.95; font-weight: 500;">Équilibre parfait entre productivité et détente absolue.</p></div><div style="display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1;"><img alt="Effect" src="assets/images/icons/effect.png" style="width: 130px; filter: brightness(0) invert(1); drop-shadow(0 15px 25px rgba(0,0,0,0.3)); margin-bottom: 20px;"/><p style="font-size: 14px; line-height: 1.6; color: #ffffff; opacity: 0.95; font-weight: 500;">Impact immédiat sur votre bien-être au quotidien.</p></div></div>
 </div>
 </div>
 </div>
@@ -251,7 +277,37 @@
     color: transparent;
     -webkit-text-stroke: 1.5px #C5A265;
   }
-</style>
+
+    @media (max-width: 991px) {
+      .ultra-premium-text { padding: 80px 15px; }
+      .ultra-premium-text h2 { font-size: 38px !important; }
+      .ultra-premium-text p { font-size: 16px !important; margin-bottom: 25px !important; }
+      .gradient-mask-vefa, .gradient-mask-conseil {
+        /* Make dark background cover left side for both, since text aligns left on mobile */
+        background: linear-gradient(90deg, rgba(12,12,12,0.98) 0%, rgba(12,12,12,0.9) 60%, rgba(12,12,12,0.4) 100%);
+      }
+      .col-lg-6 { padding-left: 15px; padding-right: 15px; }
+    }
+    @media (max-width: 575px) {
+      .ultra-premium-text { padding: 60px 15px; }
+      .ultra-premium-text h2 { font-size: 32px !important; }
+      .gradient-mask-vefa, .gradient-mask-conseil {
+        background: rgba(12,12,12,0.85); /* Solid overlay on very small screens for readability */
+      }
+    }
+  
+    @media (max-width: 767px) {
+      .premium-service-card {
+        padding: 40px 20px !important; /* Fix horizontal overflow on mobile */
+      }
+      .service-image-wrap {
+        transform: none !important; /* Remove the 3D rotation on mobile as it causes overflow/messiness */
+      }
+      .front-service-img {
+        height: auto !important; /* Let image scale naturally instead of fixed 180px if it looks messy */
+      }
+    }
+  </style>
 
 <section class="premium-service-section light-content" style="position: relative; overflow: hidden; background: #000;">
     <video autoplay loop muted playsinline class="premium-bg-video">
