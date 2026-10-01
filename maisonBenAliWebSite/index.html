@@ -237,89 +237,272 @@
 <div id="smooth-content">
 <main>
 <!--======  Start Hero Section  ======-->
-<section class="renvia-hero_one curve-bottom dark-bg">
-<div class="hero-dots"></div>
-<div class="renvia-avatar-box">
-<img alt="logo" class="mb-15" src="assets/images/home-one/hero/client-logo1.png"/>
-<div class="avatar-list">
-<ul>
-<li><img alt="avatar img" src="assets/images/home-one/gallery/avatar-img1.png"/></li>
-<li><img alt="avatar img" src="assets/images/home-one/gallery/avatar-img2.png"/></li>
-<li><img alt="avatar img" src="assets/images/home-one/gallery/avatar-img3.png"/></li>
-<li><img alt="avatar img" src="assets/images/home-one/gallery/avatar-img4.png"/></li>
-</ul>
-<div class="text">
-<div class="ratings">
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-<i class="fas fa-star"></i>
-</div>
-<p>450+ investisseurs &amp; MRE satisfaits</p>
-</div>
-</div>
-</div>
-<div class="hero-slider">
-<!-- Single Slider -->
-<div class="single-slider">
-<div class="image-layer bg_cover" data-src="assets/images/home-one/hero/hero-bg1.jpg"></div>
-<div class="container">
-<div class="row">
-<div class="col-xl-8 col-lg-10">
-<!-- Hero Content -->
-<div class="hero-content">
-<span class="tag-line" data-aos="fade-down" data-aos-duration="2000">Confiance • Transparence • Excellence — Agadir</span>
-<h1 class="text-anm">L'Excellence Immobilière &amp; l'Art de Vivre à Agadir</h1>
-<p data-aos="fade-up" data-aos-duration="2200">Dirigée par M. Fouad BENALI (11 ans d'expérience), Maison Benali sécurise vos investissements, achats de villas, appartements et gestion locative avec une rigueur absolue.</p>
-<div class="renvia-button" data-aos="fade-up" data-aos-duration="2400">
-<a class="theme-btn style-one" href="contact.html">Demander une Estimation<i class="far fa-arrow-right"></i></a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Single Slider -->
-<div class="single-slider">
-<div class="image-layer bg_cover" data-src="assets/images/home-one/hero/hero-bg2.jpg"></div>
-<div class="container">
-<div class="row">
-<div class="col-xl-8 col-lg-10">
-<!-- Hero Content -->
-<div class="hero-content">
-<span class="tag-line" data-aos="fade-down" data-aos-duration="2000">Partenaire de Confiance pour Investisseurs &amp; MRE</span>
-<h1 class="text-anm">Achetez et Vendez au Juste Prix du Marché</h1>
-<p data-aos="fade-up" data-aos-duration="2200">Grâce à nos études comparatives (ACM) et notre accompagnement notarié clé en main, éliminez tout risque de surpaiement et la complexité administrative.</p>
-<div class="renvia-button" data-aos="fade-up" data-aos-duration="2400">
-<a class="theme-btn style-one" href="projects.html">Explorer nos Biens à Vendre<i class="far fa-arrow-right"></i></a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Single Slider -->
-<div class="single-slider">
-<div class="image-layer bg_cover" data-src="assets/images/home-one/hero/hero-bg3.jpg"></div>
-<div class="container">
-<div class="row">
-<div class="col-xl-8 col-lg-10">
-<!-- Hero Content -->
-<div class="hero-content">
-<span class="tag-line" data-aos="fade-down" data-aos-duration="2000">Écosystème Hybride 360° Unique à Agadir</span>
-<h1 class="text-anm">Immobilier, Conciergerie Airbnb &amp; Benali Cars</h1>
-<p data-aos="fade-up" data-aos-duration="2200">Bénéficiez d'une synergie complète : acquisition patrimoniale, optimisation locative haut de gamme et mise à disposition de véhicules de prestige.</p>
-<div class="renvia-button" data-aos="fade-up" data-aos-duration="2400">
-<a class="theme-btn style-one" href="services.html">Découvrir l'Écosystème 360°<i class="far fa-arrow-right"></i></a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><!--======  End Hero Section  ======-->
+<style>
+.figma-hero {
+    position: relative;
+    width: 100%;
+    min-height: 950px;
+    background: 
+        radial-gradient(circle at center 20%, #ffffff 0%, #ffffff 35%, rgba(255,255,255,0.8) 50%, transparent 70%),
+        linear-gradient(90deg, #d35a18 0%, #df8b42 35%, #d8b874 65%, #bd9036 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+.figma-hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    z-index: 0;
+}
+.figma-hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: -20%; 
+    right: -20%;
+    height: 700px;
+    background: radial-gradient(ellipse 70% 100% at top center, #ffffff 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+.figma-hero-bg .stripe {
+    flex: 1;
+    background: linear-gradient(90deg, #000000 0%, #ffffff 26%, #000000 100%);
+    mix-blend-mode: overlay;
+    opacity: 0.15; /* slightly softer stripes */
+}
+.figma-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.figma-hero-badge {
+    background: #f2f4fd;
+    border: 1px solid #dcebf9;
+    border-radius: 8px;
+    padding: 6px 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.figma-hero-badge .star i {
+    color: #f5b301;
+    font-size: 18px;
+}
+.figma-hero-badge .rating {
+    font-family: 'SF Pro', -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #141929;
+}
+.figma-hero-badge .text {
+    font-family: 'SF Pro', -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #141929;
+}
+.text-slider-wrapper {
+    display: grid;
+    grid-template-areas: "slide";
+    place-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.figma-hero-title {
+    grid-area: slide;
+    font-family: 'Cal Sans', sans-serif;
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 1.1;
+    color: #070c1a;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: none;
+    margin: 0;
+    opacity: 0;
+    animation: textSlideAnim 12s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+.figma-hero-title strong {
+    font-weight: 700;
+    color: #070c1a;
+}
+.text-gold {
+    color: #bd9036;
+    font-weight: 400;
+}
+.text-outline {
+    -webkit-text-stroke: 2px #bd9036;
+    color: transparent;
+}
+.figma-hero-title:nth-child(1) { animation-delay: 0s; }
+.figma-hero-title:nth-child(2) { animation-delay: 4s; }
+.figma-hero-title:nth-child(3) { animation-delay: 8s; }
+
+@keyframes textSlideAnim {
+    0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(4px); }
+    5% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    28% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    33% { opacity: 0; transform: translateY(-30px) scale(1.02); filter: blur(4px); }
+    100% { opacity: 0; transform: translateY(-30px) scale(1.02); filter: blur(4px); }
+}
+.figma-hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #000000;
+    max-width: 660px;
+    margin: 0 auto 40px;
+}
+.figma-hero-btn {
+    background: #bd9036;
+    color: #ffffff;
+    font-family: 'SF Pro Display', -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    padding: 16px 45px;
+    border-radius: 59px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.figma-hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(189, 144, 54, 0.4);
+    color: #ffffff;
+}
+.figma-hero-btn .icon-circle {
+    width: 28px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #bd9036;
+    font-size: 14px;
+}
+.figma-hero-avatars {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 60px;
+}
+.figma-avatar-group {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 32px;
+    padding: 0;
+}
+.figma-avatar-group img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin-left: -10px;
+    object-fit: cover;
+}
+.figma-avatar-group img:first-child {
+    margin-left: 0;
+}
+.figma-avatar-badge {
+    background: rgba(45, 104, 255, 0.05);
+    border: 1px solid rgba(45, 104, 255, 0.15);
+    color: #000000;
+    font-family: 'SF Pro', -apple-system, sans-serif;
+    font-weight: 510;
+    font-size: 14px;
+    border-radius: 32px;
+    padding: 5px 12px;
+    margin-left: -10px;
+    z-index: 10;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+.figma-avatar-text {
+    font-family: 'SF Pro', -apple-system, sans-serif;
+    font-size: 14px;
+    color: #727272;
+}
+@media (max-width: 991px) {
+    .figma-hero-title { font-size: 55px; line-height: 1.1; }
+    .figma-hero-subtitle { font-size: 18px; max-width: 100%; padding: 0 20px; }
+}
+@media (max-width: 575px) {
+    .figma-hero-title { font-size: 40px; line-height: 1.2; }
+    .figma-hero-btn { font-size: 18px; padding: 12px 30px; }
+}
+</style>
+<section class="figma-hero">
+    <div class="figma-hero-bg">
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+        <div class="stripe"></div><div class="stripe"></div><div class="stripe"></div>
+    </div>
+    
+        <div class="figma-hero-content container">
+        
+        <div class="text-slider-wrapper">
+            <h1 class="figma-hero-title">
+                <span class="text-gold">L'Excellence</span><br>
+                <strong>Immobilière &amp; l'Art de</strong><br>
+                <strong>Vivre à</strong> <span class="text-gold"><span class="text-outline">A</span>gadir</span>
+            </h1>
+            <h1 class="figma-hero-title">
+                <span class="text-gold">Des Propriétés</span><br>
+                <strong>d'Exception &amp; un Service</strong><br>
+                <strong>Résolument</strong> <span class="text-gold"><span class="text-outline">P</span>remium</span>
+            </h1>
+            <h1 class="figma-hero-title">
+                <span class="text-gold">Votre Partenaire</span><br>
+                <strong>de Confiance pour l'Immobilier</strong><br>
+                <strong>à</strong> <span class="text-gold"><span class="text-outline">A</span>gadir</span>
+            </h1>
+        </div>
+        
+        <p class="figma-hero-subtitle" data-aos="fade-up" data-aos-duration="1200">
+            Check out our awesome WordPress products that blend power, style, and user-friendly designs. Think you know WordPress? Think again!
+        </p>
+        
+        <div data-aos="fade-up" data-aos-duration="1400">
+            <a href="projects.html" class="figma-hero-btn">
+                Discover what we offer
+                <span class="icon-circle"><i class="fas fa-arrow-right"></i></span>
+            </a>
+        </div>
+        
+        <div class="figma-hero-avatars" data-aos="fade-up" data-aos-duration="1600">
+            <div class="figma-avatar-group">
+                <img src="assets/images/home-one/gallery/avatar-img1.png" alt="Client">
+                <img src="assets/images/home-one/gallery/avatar-img2.png" alt="Client">
+                <img src="assets/images/home-one/gallery/avatar-img3.png" alt="Client">
+                <img src="assets/images/home-one/gallery/avatar-img4.png" alt="Client">
+                <div class="figma-avatar-badge">Over 124</div>
+            </div>
+            <span class="figma-avatar-text">Clients love us!</span>
+        </div>
+    </div>
+</section>
+<!--======  End Hero Section  ======-->
 <!--======  Start About Section  ======-->
 <section class="renvia-about_one pt-100 pb-120 curve-bottom">
 <div class="shape"><img alt="shape" src="assets/images/home-one/about/shape.png"/></div>
