@@ -237,8 +237,8 @@ main {
 }
 
 .bg_cover {
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
   background-position: 100% 100%;
 }
 
@@ -6813,6 +6813,7 @@ input:focus, textarea:focus, select:focus {
         padding-top: 50px !important;
     }
 }
+
 
 
 
