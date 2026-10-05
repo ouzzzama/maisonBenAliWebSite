@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://maisonbenali.com/</loc>
@@ -7,13 +7,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://maisonbenali.com/about.html</loc>
+    <loc>https://maisonbenali.com/a-propos.html</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://maisonbenali.com/services.html</loc>
+    <loc>https://maisonbenali.com/ecosysteme-360.html</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -55,7 +55,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://maisonbenali.com/projects.html</loc>
+    <loc>https://maisonbenali.com/proprietes-projets.html</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -103,3 +103,4 @@
     <priority>0.8</priority>
   </url>
 </urlset>
+
