@@ -6406,7 +6406,7 @@ main + footer::before {
 
 :root {
   /* Refining colors for a more premium, high-end real estate feel */
-  --primary-color: #E63946; /* Slightly deeper, more elegant red/coral based on brand */
+  --primary-color: #FF4136; /* Slightly deeper, more elegant red/coral based on brand */
   --heading-color: #0A0A0A; /* Stark, premium black for high contrast */
   --primary-black-color: #111111; 
   --gray-color: #F8F9FA; /* Cleaner, modern off-white for sections */
@@ -6493,6 +6493,8 @@ h1, h2, h3, h4, h5, h6, .section-title h2 {
   width: auto !important;
 }
 .theme-btn:hover {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
 }
@@ -6811,6 +6813,8 @@ input:focus, textarea:focus, select:focus {
         padding-top: 50px !important;
     }
 }
+
+
 
 
 
