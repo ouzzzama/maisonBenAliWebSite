@@ -6812,12 +6812,12 @@ input:focus, textarea:focus, select:focus {
    ========================================================================== */
 .curve-bottom {
     /* 
-       Center of ellipse: 50% X, -50% Y (far above the top edge so the top isn't clipped)
-       Horizontal Radius: 200% (extremely wide so edges don't hook)
-       Vertical Radius: 150% (reaches exactly 100% height at the bottom center)
+       Center of ellipse: 50% X, 0% Y
+       Horizontal Radius: 120% 
+       Vertical Radius: 100% (reaches 100% height at the bottom center, curves up to ~91% at edges)
     */
-    clip-path: ellipse(200% 150% at 50% -50%) !important;
-    -webkit-clip-path: ellipse(200% 150% at 50% -50%) !important;
+    clip-path: ellipse(120% 100% at 50% 0%) !important;
+    -webkit-clip-path: ellipse(120% 100% at 50% 0%) !important;
     
     border-radius: 0 !important;
     margin-bottom: -4vw !important; /* Pull next section up to tuck under curve */
@@ -6839,8 +6839,8 @@ input:focus, textarea:focus, select:focus {
 
 @media (max-width: 768px) {
     .curve-bottom {
-        clip-path: ellipse(250% 150% at 50% -50%) !important;
-        -webkit-clip-path: ellipse(250% 150% at 50% -50%) !important;
+        clip-path: ellipse(150% 100% at 50% 0%) !important;
+        -webkit-clip-path: ellipse(150% 100% at 50% 0%) !important;
         margin-bottom: -30px !important;
         padding-bottom: 60px !important;
     }
