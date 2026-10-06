@@ -6372,17 +6372,7 @@ label {
   position: relative;
 }
 .curve-bottom::after {
-  content: "";
-  position: absolute;
-  bottom: -4vw; /* Hangs down */
-  left: -50vw; /* Wide enough to push the sharp hooks completely off screen */
-  width: 200vw;
-  height: 8vw; /* Depth of curve */
-  border-radius: 50%;
-  background: inherit;
-  background-color: inherit;
-  pointer-events: none;
-  z-index: 1; /* Place above the next section */
+  display: none !important;
 }
 
 /* Ensure sections without explicit background colors have white backgrounds, otherwise the curve is invisible (transparent on transparent) */
