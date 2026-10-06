@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*----------------------------------------------------------------------------------- 
 
 Template Name: Renvia – Real Estate Group HTML5 Template
@@ -1877,7 +1877,7 @@ label {
     padding: 200px 0 100px;
   }
 }
-.page-hero::after {
+.page-hero::before {
   position: absolute;
   top: 0;
   left: 0;
