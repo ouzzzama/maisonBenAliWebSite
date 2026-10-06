@@ -1024,23 +1024,34 @@ label {
   top: -7px;
 }
 @media screen and (max-width: 1199.98px) {
+  .header-navigation .primary-menu { position: relative; }
   .header-navigation .theme-nav-menu {
     text-align: left;
-    position: fixed;
-    top: 0;
-    left: -290px;
-    width: 290px;
-    height: 100%;
-    transition-duration: 500ms;
-    padding: 20px 20px 30px;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 0;
+    width: 100%;
+    display: none;
+    padding: 20px;
     z-index: 9999;
     background-color: var(--white-color);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
   }
   .header-navigation .theme-nav-menu.menu-on {
-    left: 0;
+    display: block;
+    animation: dropMenu 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes dropMenu {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Force visible links inside mobile dropdown */
+  .header-navigation .theme-nav-menu .main-menu ul li a {
+    color: var(--heading-color) !important;
+  }
+  .header-four .header-navigation .theme-nav-menu .main-menu ul li a {
+    color: var(--heading-color) !important;
   }
   .header-navigation .theme-nav-menu .main-menu {
     margin-top: 30px;
@@ -6813,6 +6824,7 @@ input:focus, textarea:focus, select:focus {
         padding-top: 50px !important;
     }
 }
+
 
 
 
