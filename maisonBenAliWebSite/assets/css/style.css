@@ -6875,3 +6875,7 @@ input:focus, textarea:focus, select:focus {
 
 
 
+
+/* Hide logo from mobile dropdown */
+.header-navigation .theme-nav-menu .theme-menu-top { display: none !important; }
+
