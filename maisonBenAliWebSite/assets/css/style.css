@@ -7208,3 +7208,9 @@ main + footer.footer-contact {
   margin-top: -1px !important;
 }
 
+/* Do not cover the final page curve with a flat footer spacer. */
+main + footer::before {
+  display: none !important;
+  height: 0 !important;
+}
+
