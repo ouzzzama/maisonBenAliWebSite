@@ -1157,15 +1157,19 @@
 </section><!--======  End Blog Section  ======-->
 </main>
 <!--======  Start Footer  ======-->
-<footer class="main-footer footer-v1">
+<footer class="main-footer footer-v1" id="footer-birds">
 <div class="container">
 <!--=== Footer Widget Area ===-->
-<div class="footer-widget-area footer-centered pt-80 pb-50">
+<div class="footer-widget-area footer-centered footer-professional pt-80 pb-50">
+<div class="footer-layout">
 <div class="footer-brand-block" data-aos="fade-up" data-aos-duration="800">
 <div class="footer-logo mb-25">
 <a href="/"><img alt="Maison Benali Logo" src="assets/images/home-one/logo/logo-white.png"/></a>
 </div>
 <p class="footer-about-text">Maison Benali est l'agence immobilière de prestige et conciergerie 360° de référence à Agadir. Dirigée par M. Fouad BENALI (11 ans d'expérience), nous vous accompagnons pour acheter, vendre, estimer ou gérer vos appartements, villas et terrains en toute sérénité.</p>
+</div>
+<div class="footer-nav-block" data-aos="fade-up" data-aos-duration="1000">
+<h4 class="footer-column-title">Navigation</h4>
 <ul class="footer-page-nav">
 <li><a href="/">Accueil</a></li>
 <li><a href="a-propos">À propos</a></li>
@@ -1173,6 +1177,10 @@
 <li><a href="proprietes-projets">Propriétés</a></li>
 <li><a href="contact">Contact</a></li>
 </ul>
+</div>
+<div class="footer-social-block" data-aos="fade-up" data-aos-duration="1200">
+<h4 class="footer-column-title">Suivez-nous</h4>
+<p class="footer-social-text">Retrouvez Maison Benali sur les réseaux sociaux.</p>
 <div class="social-box">
 <a href="#"><i class="fab fa-facebook-f"></i></a>
 <a aria-label="X" href="#"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.727-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" fill="currentColor"></path></svg></a>
@@ -1181,7 +1189,18 @@
 </div>
 </div>
 </div>
+</div>
 <!--=== Copyright Area ===-->
+<div class="copyright-area footer-copyright">
+<div class="row align-items-center">
+<div class="col-md-7">
+<div class="copyright-text"><p>© 2026 <span>Maison Benali</span>. Tous droits réservés.</p></div>
+</div>
+<div class="col-md-5">
+<div class="copyright-link text-md-end"><a href="contact">Nous contacter</a></div>
+</div>
+</div>
+</div>
 </div>
 </footer><!--======  End Footer  ======-->
 </div>
@@ -1209,6 +1228,26 @@
 <script src="assets/js/plugins/aos.js"></script>
 <!--====== Theme js ======-->
 <script src="assets/js/theme.js"></script>
+<!--====== Footer Birds Animation ======-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.birds.min.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    if (window.VANTA && window.VANTA.BIRDS) {
+      window.footerBirdsEffect = window.VANTA.BIRDS({
+        el: '#footer-birds',
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color2: 0x000000
+      });
+    }
+  });
+</script>
 </body>
 </html>
 

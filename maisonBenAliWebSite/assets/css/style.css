@@ -6356,6 +6356,145 @@ label {
   background-color: var(--primary-color);
 }
 
+/* Professional footer layout */
+.footer-professional {
+  text-align: left;
+  padding-top: 70px;
+  padding-bottom: 0;
+  min-height: 430px;
+}
+.footer-professional .footer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(150px, 0.8fr) minmax(180px, 0.9fr);
+  gap: 55px;
+  align-items: start;
+  min-height: 315px;
+  padding-bottom: 75px;
+}
+.footer-professional .footer-brand-block,
+.footer-professional .footer-nav-block,
+.footer-professional .footer-social-block {
+  max-width: none;
+  margin: 0;
+}
+.footer-professional .footer-logo {
+  margin-bottom: 20px;
+}
+.footer-professional .footer-logo img {
+  width: 260px;
+  margin: 0;
+}
+.footer-professional .footer-about-text {
+  max-width: 510px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+.footer-professional .footer-column-title {
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 8px 0 22px;
+  position: relative;
+}
+.footer-professional .footer-column-title::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin-top: 10px;
+  background-color: var(--primary-color);
+}
+.footer-professional .footer-page-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+.footer-professional .footer-page-nav li a {
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.footer-professional .footer-page-nav li a:hover {
+  padding-left: 5px;
+}
+.footer-professional .footer-social-text {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 22px;
+}
+.footer-professional .social-box {
+  justify-content: flex-start;
+  gap: 10px;
+}
+.footer-professional .social-box a {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+.footer-professional .footer-copyright {
+  padding: 22px 0 24px;
+}
+.footer-professional .copyright-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+.footer-professional .copyright-link a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 767.98px) {
+  .footer-professional {
+    padding-top: 55px;
+    min-height: 0;
+  }
+  .footer-professional .footer-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    min-height: 0;
+    padding-bottom: 40px;
+  }
+  .footer-professional .footer-logo img {
+    width: 230px;
+  }
+  .footer-professional .footer-copyright {
+    text-align: center;
+  }
+  .footer-professional .copyright-link {
+    margin-top: 8px;
+    text-align: center !important;
+  }
+}
+
+/* Vanta Birds background for the footer */
+#footer-birds {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+#footer-birds::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.18);
+}
+#footer-birds > canvas {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0 !important;
+  pointer-events: none;
+}
+#footer-birds > .container {
+  position: relative;
+  z-index: 2;
+}
+
 /* Disable old buggy curved-section pseudo-elements */
 .curved-section::before, .curved-section::after {
   display: none !important;
@@ -6811,13 +6950,12 @@ input:focus, textarea:focus, select:focus {
    (Works with background images, zero edge hooking, perfect subtlety)
    ========================================================================== */
 .curve-bottom {
-    /* 
-       Center of ellipse: 50% X, 0% Y
-       Horizontal Radius: 120% 
-       Vertical Radius: 100% (reaches 100% height at the bottom center, curves up to ~91% at edges)
+    /*
+       Use a wide ellipse so the whole bottom edge is curved. The previous
+       120% horizontal radius made the curve too concentrated in the center.
     */
-    clip-path: ellipse(120% 100% at 50% 0%) !important;
-    -webkit-clip-path: ellipse(120% 100% at 50% 0%) !important;
+    clip-path: ellipse(160% 100% at 50% 0%) !important;
+    -webkit-clip-path: ellipse(160% 100% at 50% 0%) !important;
     
     border-radius: 0 !important;
     margin-bottom: -4vw !important; /* Pull next section up to tuck under curve */
@@ -6839,8 +6977,8 @@ input:focus, textarea:focus, select:focus {
 
 @media (max-width: 768px) {
     .curve-bottom {
-        clip-path: ellipse(150% 100% at 50% 0%) !important;
-        -webkit-clip-path: ellipse(150% 100% at 50% 0%) !important;
+        clip-path: ellipse(190% 100% at 50% 0%) !important;
+        -webkit-clip-path: ellipse(190% 100% at 50% 0%) !important;
         margin-bottom: -30px !important;
         padding-bottom: 60px !important;
     }
