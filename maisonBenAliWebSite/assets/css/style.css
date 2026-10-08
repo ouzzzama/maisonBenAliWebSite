@@ -6608,6 +6608,76 @@ label {
   }
 }
 
+/* Keep the contact map directly attached to the footer. */
+.contact-map-sec {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+}
+.contact-map-sec .map-box,
+.contact-map-sec .map-box.mt-5,
+.contact-map-sec .map-box.mt-xl-0 {
+  margin: 0 !important;
+}
+.contact-map-sec .map-box iframe {
+  display: block;
+}
+.footer-contact {
+  margin-top: 0 !important;
+}
+.footer-contact::before {
+  display: none !important;
+  height: 0 !important;
+}
+
+/* Ecosystem page card micro-interactions and consistent icon sizing. */
+.premium-service-combined .premium-service-card,
+.premium-service-section .service-text-content,
+.premium-service-section .service-image-wrap {
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+.premium-service-combined .premium-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 38px 75px rgba(0, 0, 0, 0.16) !important;
+}
+.premium-service-combined .content-wrapper > * {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.premium-service-combined .premium-service-card:hover .step-label,
+.premium-service-combined .premium-service-card:hover .title,
+.premium-service-combined .premium-service-card:hover p {
+  transform: translateX(6px);
+}
+.premium-service-combined .premium-service-card:hover .theme-btn,
+.premium-service-section .service-text-content:hover .theme-btn {
+  transform: translateY(-3px);
+}
+.premium-service-section .service-text-content:hover {
+  transform: translateX(6px);
+}
+.premium-service-section .service-image-wrap:hover {
+  transform: perspective(1000px) rotateY(0deg) translateY(-8px) scale(1.03) !important;
+}
+.premium-service-section .service-image-wrap img {
+  width: 140px !important;
+  height: 140px !important;
+  object-fit: contain;
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+.premium-service-section .service-image-wrap:hover img {
+  transform: scale(1.08) rotate(2deg);
+  filter: brightness(0) invert(1) drop-shadow(0 18px 28px rgba(189, 144, 54, 0.35));
+}
+.premium-service-section .service-image-wrap p {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.premium-service-section .service-image-wrap:hover p {
+  transform: translateY(-4px);
+  opacity: 1 !important;
+}
+
 /* Disable old buggy curved-section pseudo-elements */
 .curved-section::before, .curved-section::after {
   display: none !important;
