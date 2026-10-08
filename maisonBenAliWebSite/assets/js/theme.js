@@ -600,3 +600,50 @@ Version: 1.0
     });
 
 })(window.jQuery);
+
+// Shared Vanta Birds background for every page footer.
+(function initSharedFooterBirds() {
+    var footers = document.querySelectorAll('.footer-v1');
+    if (!footers.length) return;
+
+    function loadScript(src, callback) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.onload = callback;
+        script.onerror = callback;
+        document.head.appendChild(script);
+    }
+
+    function createBirds() {
+        if (!window.VANTA || !window.VANTA.BIRDS) return;
+        footers.forEach(function (footer) {
+            if (footer.dataset.birdsInitialized === 'true') return;
+            footer.dataset.birdsInitialized = 'true';
+            window.VANTA.BIRDS({
+                el: footer,
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color2: 0x000000
+            });
+        });
+    }
+
+    function loadVanta() {
+        if (window.VANTA && window.VANTA.BIRDS) {
+            createBirds();
+        } else {
+            loadScript('https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.birds.min.js', createBirds);
+        }
+    }
+
+    if (window.THREE) {
+        loadVanta();
+    } else {
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js', loadVanta);
+    }
+})();

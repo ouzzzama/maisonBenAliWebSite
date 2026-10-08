@@ -6495,6 +6495,119 @@ label {
   z-index: 2;
 }
 
+/* Apply the same footer design to inner pages that use the legacy markup. */
+.footer-v1:not(#footer-birds) .footer-widget-area.footer-centered {
+  text-align: left;
+  min-height: 430px;
+  padding-top: 70px;
+  padding-bottom: 0;
+}
+.footer-v1:not(#footer-birds) .footer-brand-block {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(150px, 0.8fr) minmax(180px, 0.9fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 55px;
+  min-height: 315px;
+  max-width: none;
+  margin: 0;
+  padding-bottom: 75px;
+}
+.footer-v1:not(#footer-birds) .footer-logo {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 8px 0 20px;
+}
+.footer-v1:not(#footer-birds) .footer-logo img {
+  width: 260px;
+  margin: 0;
+}
+.footer-v1:not(#footer-birds) .footer-about-text {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 510px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+.footer-v1:not(#footer-birds) .footer-page-nav {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 8px 0 0;
+  padding: 40px 0 0;
+  position: relative;
+}
+.footer-v1:not(#footer-birds) .footer-page-nav::before {
+  content: "Navigation";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+.footer-v1:not(#footer-birds) .footer-page-nav li a {
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+.footer-v1:not(#footer-birds) .footer-page-nav li a:hover {
+  color: var(--primary-color);
+  padding-left: 5px;
+}
+.footer-v1:not(#footer-birds) .social-box {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 40px;
+  position: relative;
+}
+.footer-v1:not(#footer-birds) .social-box::before {
+  content: "Suivez-nous";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 600;
+}
+.footer-v1:not(#footer-birds) .social-box a {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+.footer-v1:not(#footer-birds) .footer-widget-area::after {
+  content: "© 2026 Maison Benali. Tous droits réservés.";
+  display: block;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 22px 0 24px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+@media (max-width: 767.98px) {
+  .footer-v1:not(#footer-birds) .footer-widget-area.footer-centered {
+    min-height: 0;
+    padding-top: 55px;
+  }
+  .footer-v1:not(#footer-birds) .footer-brand-block {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 34px;
+    min-height: 0;
+    padding-bottom: 40px;
+  }
+  .footer-v1:not(#footer-birds) .footer-logo,
+  .footer-v1:not(#footer-birds) .footer-about-text,
+  .footer-v1:not(#footer-birds) .footer-page-nav,
+  .footer-v1:not(#footer-birds) .social-box {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
 /* Disable old buggy curved-section pseudo-elements */
 .curved-section::before, .curved-section::after {
   display: none !important;

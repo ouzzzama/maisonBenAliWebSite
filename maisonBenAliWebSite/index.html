@@ -1233,7 +1233,9 @@
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.birds.min.js"></script>
 <script>
   window.addEventListener('load', function () {
-    if (window.VANTA && window.VANTA.BIRDS) {
+    var footer = document.querySelector('#footer-birds');
+    if (footer && !footer.dataset.birdsInitialized && window.VANTA && window.VANTA.BIRDS) {
+      footer.dataset.birdsInitialized = 'true';
       window.footerBirdsEffect = window.VANTA.BIRDS({
         el: '#footer-birds',
         mouseControls: true,
