@@ -7184,7 +7184,7 @@ input:focus, textarea:focus, select:focus {
 /* Final contact-page override: let the map meet the footer directly. */
 main > .contact-map-sec {
   margin-bottom: -4vw !important;
-  padding-bottom: 8vw !important;
+  padding-bottom: 0 !important;
   clip-path: ellipse(160% 100% at 50% 0%) !important;
   -webkit-clip-path: ellipse(160% 100% at 50% 0%) !important;
 }
@@ -7192,6 +7192,13 @@ main > .contact-map-sec .map-box,
 main > .contact-map-sec .map-box.mt-5,
 main > .contact-map-sec .map-box.mt-xl-0 {
   margin-bottom: 0 !important;
+  height: calc(540px + 8vw) !important;
+}
+main > .contact-map-sec .map-box iframe {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
 }
 main + footer.footer-contact::before {
   display: none !important;
