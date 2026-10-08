@@ -7222,3 +7222,19 @@ main > section.curve-bottom:last-child {
   margin-right: 0 !important;
 }
 
+/* Let the footer sit underneath the final curve and keep the footer spacious. */
+main + footer:not(.footer-contact) {
+  position: relative;
+  z-index: 1;
+  min-height: 520px;
+  margin-top: -8vw !important;
+  padding-top: 8vw !important;
+}
+@media (max-width: 768px) {
+  main + footer:not(.footer-contact) {
+    min-height: 0;
+    margin-top: -30px !important;
+    padding-top: 30px !important;
+  }
+}
+
