@@ -7181,3 +7181,20 @@ input:focus, textarea:focus, select:focus {
 /* Hide logo from mobile dropdown */
 .header-navigation .theme-nav-menu .theme-menu-top { display: none !important; }
 
+/* Final contact-page override: let the map meet the footer directly. */
+main > .contact-map-sec {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+}
+main > .contact-map-sec .map-box,
+main > .contact-map-sec .map-box.mt-5,
+main > .contact-map-sec .map-box.mt-xl-0 {
+  margin-bottom: 0 !important;
+}
+main + footer.footer-contact::before {
+  display: none !important;
+  height: 0 !important;
+}
+
